@@ -52,7 +52,7 @@
 //int YM2151Init(int num, int clock, int rate);
 int YM2151Init(int num, int clock, int rate, void (*timer_cb)(INT32, double));
 
-int ym2151_timer_over(int num, int timer); // for fm timer
+INT32 ym2151_timer_over(INT32 num, INT32 timer); // for fm timer
 
 /* shutdown the YM2151 emulators*/
 void YM2151Shutdown(void);
@@ -77,7 +77,7 @@ void YM2151WriteReg(int n, int r, int v);
 int YM2151ReadStatus(int n);
 
 /* set interrupt handler on YM2151 chip number 'n'*/
-void YM2151SetIrqHandler(int n, void (*handler)(int irq));
+void YM2151SetIrqHandler(int n, void (*handler)(INT32 irq));
 
 /* set port write handler on YM2151 chip number 'n'*/
 void YM2151SetPortWriteHandler(int n, write8_handler handler);

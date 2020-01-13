@@ -38,7 +38,7 @@ static TMS34010MemoryMap g_mmap;
 
 static UINT16 default_read(UINT32 address) { return ~0; }
 static void default_write(UINT32 address, UINT16 value) {}
-static void default_shift_op(UINT32,void*){}
+static void default_shift_op(tms::dword,void*){}
 
 
 static UINT16 IO_read(UINT32 address) { return tms::read_ioreg(&tms34010,address); }
@@ -114,12 +114,12 @@ void TMS34010SetScanlineRender(pTMS34010ScanlineRender sr)
     scanlineRenderCallback = sr;
 }
 
-void TMS34010SetToShift(void (*reader)(UINT32 addr, void *dst))
+void TMS34010SetToShift(void (*reader)(tms::dword addr, void *dst))
 {
     tms34010.shift_read_cycle = reader;
 }
 
-void TMS34010SetFromShift(void (*writer)(UINT32 addr, void *src))
+void TMS34010SetFromShift(void (*writer)(tms::dword addr, void *src))
 {
     tms34010.shift_write_cycle = writer;
 }

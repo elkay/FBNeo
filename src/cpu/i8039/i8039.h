@@ -31,12 +31,12 @@ enum { I8039_PC=1, I8039_SP, I8039_PSW, I8039_A,  I8039_TC,
 	   I8039_EA
 };
 
-typedef unsigned char (__fastcall *i8039ReadIoHandler)(unsigned int a);
-typedef void (__fastcall *i8039WriteIoHandler)(unsigned int a, unsigned char v);
-typedef unsigned char (__fastcall *i8039ReadProgHandler)(unsigned int a);
-typedef void (__fastcall *i8039WriteProgHandler)(unsigned int a, unsigned char v);
-typedef unsigned char (__fastcall *i8039ReadOpHandler)(unsigned int a);
-typedef unsigned char (__fastcall *i8039ReadOpArgHandler)(unsigned int a);
+typedef UINT8 (__fastcall *i8039ReadIoHandler)(UINT32 a);
+typedef void (__fastcall *i8039WriteIoHandler)(UINT32 a, UINT8 v);
+typedef UINT8 (__fastcall *i8039ReadProgHandler)(UINT32 a);
+typedef void (__fastcall *i8039WriteProgHandler)(UINT32 a, UINT8 v);
+typedef UINT8 (__fastcall *i8039ReadOpHandler)(UINT32 a);
+typedef UINT8 (__fastcall *i8039ReadOpArgHandler)(UINT32 a);
 
 extern void I8039Init(INT32 nCpu);
 extern int I8039Run(int cycles);
@@ -49,7 +49,7 @@ extern void I8039SetCPUOpReadArgHandler(i8039ReadOpArgHandler handler);
 extern void I8039Exit();
 extern void I8039Reset (void);
 extern void I8039SetIrqState(int state);
-extern int I8039Scan(int nAction,int *pnMin);
+extern int I8039Scan(int nAction,INT32 *pnMin);
 extern void I8039Open(INT32 nCpu);
 extern void I8039Close();
 extern INT32 I8039GetActive();

@@ -331,7 +331,7 @@ static void tbowl_vclk_1()
 	tbowl_adpcm_int(1);
 }
 
-static void DrvFMIRQHandler(int, INT32 nStatus)
+static void DrvFMIRQHandler(INT32, INT32 nStatus)
 {
 	ZetSetIRQLine(0, ((nStatus) ? CPU_IRQSTATUS_ACK : CPU_IRQSTATUS_NONE));
 }

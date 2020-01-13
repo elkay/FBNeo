@@ -680,7 +680,7 @@ static INT32 MemIndex()
 
 	DrvColPROM		= Next; Next += 0x000300;
 
-	DrvPalette		= (unsigned int*)Next; Next += 0x0100 * sizeof(INT32);
+	DrvPalette		= (UINT32*)Next; Next += 0x0100 * sizeof(INT32);
 
 	AllRam			= Next;
 
@@ -828,7 +828,7 @@ static INT32 StingerLoadRoms()
 	return 0;
 }
 
-static INT32 DrvInit(int (*RomLoadCallback)())
+static INT32 DrvInit(INT32 (*RomLoadCallback)())
 {
 	AllMem = NULL;
 	MemIndex();

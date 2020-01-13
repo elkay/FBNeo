@@ -2080,7 +2080,7 @@ unsigned char YM3812Read(int which, int a)
 	/* YM3812 always returns bit2 and bit1 in HIGH state */
 	return OPLRead(OPL_YM3812[which], a) | 0x06 ;
 }
-int YM3812TimerOver(int which, int c)
+INT32 YM3812TimerOver(INT32 which, INT32 c)
 {
 	return OPLTimerOver(OPL_YM3812[which], c);
 }
@@ -2231,7 +2231,7 @@ unsigned char YM3526Read(int which, int a)
 	/* YM3526 always returns bit2 and bit1 in HIGH state */
 	return OPLRead(OPL_YM3526[which], a) | 0x06 ;
 }
-int YM3526TimerOver(int which, int c)
+INT32 YM3526TimerOver(INT32 which, INT32 c)
 {
 	return OPLTimerOver(OPL_YM3526[which], c);
 }
@@ -2399,7 +2399,7 @@ unsigned char Y8950Read(int which, int a)
 {
 	return OPLRead(OPL_Y8950[which], a);
 }
-int Y8950TimerOver(int which, int c)
+INT32 Y8950TimerOver(INT32 which, INT32 c)
 {
 	return OPLTimerOver(OPL_Y8950[which], c);
 }

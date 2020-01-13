@@ -12773,7 +12773,7 @@ static INT32 Ssf2PhoenixInit()
 	return nRet;
 }
 
-static int Ssf2tbPhoenixInit()
+static INT32 Ssf2tbPhoenixInit()
 {
 	Ssf2tb = 1;
 	

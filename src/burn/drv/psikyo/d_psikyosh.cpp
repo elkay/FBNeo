@@ -898,7 +898,7 @@ static struct BurnRomInfo soldividRomDesc[] = {
 STD_ROM_PICK(soldivid)
 STD_ROM_FN(soldivid)
 
-static int SoldividLoadCallback()
+static INT32 SoldividLoadCallback()
 {
 	if (BurnLoadRom(DrvSh2ROM  + 0x0000001,  0, 2)) return 1;
 	if (BurnLoadRom(DrvSh2ROM  + 0x0000000,  1, 2)) return 1;

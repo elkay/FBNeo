@@ -493,7 +493,7 @@ struct display_info {
 };
 
 
-typedef int (*scanline_render_t)(int line, display_info*);
+typedef INT32 (*scanline_render_t)(INT32 line, display_info*);
 int generate_scanline(cpu_state *cpu, int line, scanline_render_t render);
 
 

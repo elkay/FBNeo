@@ -3277,7 +3277,7 @@ static INT32 BodyslamInit()
 	return System16Init();
 }
 
-static void SegaDecode2(const UINT8 xor_table[128],const int swap_table[128])
+static void SegaDecode2(const UINT8 xor_table[128],const INT32 swap_table[128])
 {
 	INT32 A;
 	static const UINT8 swaptable[24][4] =

@@ -841,7 +841,7 @@ static void timer_callback_b (int n)
 	}
 }
 
-int ym2151_timer_over(int num, int timer)
+INT32 ym2151_timer_over(INT32 num, INT32 timer)
 {
 	switch (timer) {
 		case 0: timer_callback_a(0); break;
@@ -2692,7 +2692,7 @@ void YM2151UpdateOne(int num, INT16 **buffers, int length)
 	}
 }
 
-void YM2151SetIrqHandler(int n, void(*handler)(int irq))
+void YM2151SetIrqHandler(int n, void(*handler)(INT32 irq))
 {
 	YMPSG[n].irqhandler = handler;
 }

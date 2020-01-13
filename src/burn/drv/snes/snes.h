@@ -106,9 +106,9 @@ extern double spctotal2;
 extern double spctotal3;
 void execspc();
 
-extern int intthisline;
-extern int framenum;
-extern int oldnmi;
+extern INT32 intthisline;
+extern INT32 framenum;
+extern INT32 oldnmi;
 
 
 static inline void clockspc(int cyc)
@@ -281,7 +281,7 @@ extern int global_pal;
 extern UINT16 dmadest[8], dmasrc[8], dmalen[8];
 extern UINT32 hdmaaddr[8], hdmaaddr2[8];
 extern UINT8 dmabank[8], dmaibank[8], dmactrl[8], hdmastat[8], hdmadat[8];
-extern int hdmacount[8];
+extern INT32 hdmacount[8];
 extern UINT8 hdmaena;
 
 

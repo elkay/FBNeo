@@ -900,7 +900,7 @@ static void drawsprite_invalid(INT32 Code, INT32 x, INT32 y, INT32 Bank, INT32 A
 #endif
 }
 
-typedef void (*drawsprites_procdef)(int, int, int, int, int);
+typedef void (*drawsprites_procdef)(INT32, INT32, INT32, INT32, INT32);
 
 static drawsprites_procdef drawsprites_proc[16] = {
 	drawsprite_invalid,		/* 0000 = 08x08 */

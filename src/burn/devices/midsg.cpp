@@ -70,7 +70,7 @@ static void soundsgood_portb_w(UINT16, UINT8 data)
 	if (pia_get_ddr_b(0) & 0x30) soundsgood_status = (data >> 4) & 3;
 }
 
-static void soundsgood_irq(int state)
+static void soundsgood_irq(INT32 state)
 {
 	SekSetIRQLine(4, state ? CPU_IRQSTATUS_ACK : CPU_IRQSTATUS_NONE);
 }

@@ -5,12 +5,12 @@
  #define __fastcall
 #endif
 
-typedef unsigned char (__fastcall *pSh2ReadByteHandler)(unsigned int a);
-typedef void (__fastcall *pSh2WriteByteHandler)(unsigned int a, unsigned char d);
-typedef unsigned short (__fastcall *pSh2ReadWordHandler)(unsigned int a);
-typedef void (__fastcall *pSh2WriteWordHandler)(unsigned int a, unsigned short d);
-typedef unsigned int (__fastcall *pSh2ReadLongHandler)(unsigned int a);
-typedef void (__fastcall *pSh2WriteLongHandler)(unsigned int a, unsigned int d);
+typedef UINT8 (__fastcall *pSh2ReadByteHandler)(UINT32 a);
+typedef void (__fastcall *pSh2WriteByteHandler)(UINT32 a, UINT8 d);
+typedef UINT16 (__fastcall *pSh2ReadWordHandler)(UINT32 a);
+typedef void (__fastcall *pSh2WriteWordHandler)(UINT32 a, UINT16 d);
+typedef UINT32 (__fastcall *pSh2ReadLongHandler)(UINT32 a);
+typedef void (__fastcall *pSh2WriteLongHandler)(UINT32 a, UINT32 d);
 
 extern int has_sh2;
 extern INT32 cps3speedhack;
@@ -19,16 +19,16 @@ extern INT32 sh2_busyloop_speedhack_mode2;
 void __fastcall Sh2WriteByte(unsigned int a, unsigned char d);
 unsigned char __fastcall Sh2ReadByte(unsigned int a);
 
-int Sh2Init(int nCount);
+INT32 Sh2Init(INT32 nCount);
 int Sh2Exit();
 
-void Sh2Open(const int i);
+void Sh2Open(const INT32 i);
 void Sh2Close();
-int Sh2GetActive();
+INT32 Sh2GetActive();
 
 void Sh2Reset();
-void Sh2Reset(unsigned int pc, unsigned r15); // hack
-int Sh2Run(int cycles);
+void Sh2Reset(UINT32 pc, UINT32 r15); // hack
+INT32 Sh2Run(INT32 cycles);
 
 int Sh2MapMemory(unsigned char* pMemory, unsigned int nStart, unsigned int nEnd, int nType);
 int Sh2MapHandler(uintptr_t nHandler, unsigned int nStart, unsigned int nEnd, int nType);

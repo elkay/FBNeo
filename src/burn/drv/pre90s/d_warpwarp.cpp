@@ -582,9 +582,9 @@ static void warpwarp_sound_deinit()
 
 static void warpwarp_palette_init()
 {
-	static const int resistances_tiles_rg[3] = { 1600, 820, 390 };
-	static const int resistances_tiles_b[2]  = { 820, 390 };
-	static const int resistance_ball[1]      = { 220 };
+	static const INT32 resistances_tiles_rg[3] = { 1600, 820, 390 };
+	static const INT32 resistances_tiles_b[2]  = { 820, 390 };
+	static const INT32 resistance_ball[1]      = { 220 };
 
 	double weights_tiles_rg[3], weights_tiles_b[2], weight_ball[1];
 

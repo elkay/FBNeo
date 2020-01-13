@@ -287,7 +287,7 @@ int m6502_get_segmentcycles()
 	return segmentcycles - m6502_ICount;
 }
 
-int m6502_execute(int cycles)
+INT32 m6502_execute(INT32 cycles)
 {
 	segmentcycles = cycles;
 	m6502_ICount = cycles;
@@ -353,7 +353,7 @@ int m6502_execute(int cycles)
 	return cycles;
 }
 
-int decocpu7_execute(int cycles)
+INT32 decocpu7_execute(INT32 cycles)
 {
 	segmentcycles = cycles;
 	m6502_ICount = cycles;
@@ -427,7 +427,7 @@ int decocpu7_execute(int cycles)
 	return cycles;
 }
 
-void m6502_set_irq_line(int irqline, int state)
+void m6502_set_irq_line(INT32 irqline, INT32 state)
 {
 	if (irqline == M6502_INPUT_LINE_NMI)
 	{
@@ -631,7 +631,7 @@ M6502_INLINE void m65c02_take_irq(void)
 	}
 }
 
-int m65c02_execute(int cycles)
+INT32 m65c02_execute(INT32 cycles)
 {
 	segmentcycles = cycles;
 	m6502_ICount = cycles;
@@ -684,7 +684,7 @@ int m65c02_execute(int cycles)
 	return cycles;
 }
 
-void m65c02_set_irq_line(int irqline, int state)
+void m65c02_set_irq_line(INT32 irqline, INT32 state)
 {
 	if (irqline == M6502_INPUT_LINE_NMI)
 	{
@@ -798,7 +798,7 @@ M6502_INLINE void deco16_take_irq(void)
 	}
 }
 
-void deco16_set_irq_line(int irqline, int state)
+void deco16_set_irq_line(INT32 irqline, INT32 state)
 {
 	if (irqline == M6502_INPUT_LINE_NMI)
 	{
@@ -843,7 +843,7 @@ void deco16_set_irq_line(int irqline, int state)
 	}
 }
 
-int deco16_execute(int cycles)
+INT32 deco16_execute(INT32 cycles)
 {
 	segmentcycles = cycles;
 	m6502_ICount = cycles;

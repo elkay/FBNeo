@@ -233,9 +233,9 @@ struct OPL3
 	UINT32  pan[18*4];              /* channels output masks (0xffffffff = enable); 4 masks per one channel */
 	UINT32  pan_ctrl_value[18];     /* output control values 1 per one channel (1 value contains 4 masks) */
 
-	signed int chanout[18];
-	signed int phase_modulation;        /* phase modulation input (SLOT 2) */
-	signed int phase_modulation2;   /* phase modulation input (SLOT 3 in 4 operator channels) */
+	INT32   chanout[18];
+	INT32   phase_modulation;        /* phase modulation input (SLOT 2) */
+	INT32   phase_modulation2;   /* phase modulation input (SLOT 3 in 4 operator channels) */
 
 	UINT32  eg_cnt;                 /* global envelope generator counter    */
 	UINT32  eg_timer;               /* global envelope generator counter works at frequency = chipclock/288 (288=8*36) */
@@ -987,7 +987,7 @@ number   number    BLK/FNUM2 FNUM    Drum  Hat   Drum  Tom  Cymbal
 INLINE void chan_calc_rhythm( OPL3 *chip, OPL3_CH *CH, unsigned int noise )
 {
 	OPL3_SLOT *SLOT;
-	signed int *chanout = chip->chanout;
+	INT32 *chanout = chip->chanout;
 	signed int out;
 	unsigned int env;
 
@@ -2580,7 +2580,7 @@ void ymf262_update_one(void *_chip, INT16 **buffers, int length)
 {
 	int i;
 	OPL3        *chip  = (OPL3 *)_chip;
-	signed int *chanout = chip->chanout;
+	INT32       *chanout = chip->chanout;
 	UINT8       rhythm = chip->rhythm&0x20;
 
 	OPL3SAMPLE  *ch_a = buffers[0];

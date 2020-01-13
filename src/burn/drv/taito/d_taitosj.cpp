@@ -2158,7 +2158,7 @@ static void taitosj_copy_layer(INT32 which, INT32 *sprites_on, INT32 *sprite_are
 	}
 }
 
-static void kikstart_copy_layer(int which, int *sprites_on, INT32 *sprite_areas)
+static void kikstart_copy_layer(INT32 which, INT32 *sprites_on, INT32 *sprite_areas)
 {
 	INT32 area[4] = { 0, 256, 0, 256 };
 
@@ -2252,7 +2252,7 @@ static INT32 check_sprite_layer_bitpattern(int which, INT32 *sprite_areas)
 	return result;
 }
 
-static void check_sprite_layer_collision(int *sprites_on, INT32 *sprite_areas)
+static void check_sprite_layer_collision(INT32 *sprites_on, INT32 *sprite_areas)
 {
 	if (video_mode & 0x80)
 	{
@@ -2266,7 +2266,7 @@ static void check_sprite_layer_collision(int *sprites_on, INT32 *sprite_areas)
 	}
 }
 
-static void calculate_sprite_areas(int *sprites_on, INT32 *sprite_areas)
+static void calculate_sprite_areas(INT32 *sprites_on, INT32 *sprite_areas)
 {
 	INT32 width = 256;
 	INT32 height = 256;

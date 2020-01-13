@@ -78,12 +78,12 @@ extern void (*z80edfe_callback)(Z80_Regs *Regs);
 extern int z80_ICount;
 extern UINT32 EA;
 
-typedef unsigned char (__fastcall *Z80ReadIoHandler)(unsigned int a);
-typedef void (__fastcall *Z80WriteIoHandler)(unsigned int a, unsigned char v);
-typedef unsigned char (__fastcall *Z80ReadProgHandler)(unsigned int a);
-typedef void (__fastcall *Z80WriteProgHandler)(unsigned int a, unsigned char v);
-typedef unsigned char (__fastcall *Z80ReadOpHandler)(unsigned int a);
-typedef unsigned char (__fastcall *Z80ReadOpArgHandler)(unsigned int a);
+typedef UINT8 (__fastcall *Z80ReadIoHandler)(UINT32 a);
+typedef void (__fastcall *Z80WriteIoHandler)(UINT32 a, UINT8 v);
+typedef UINT8 (__fastcall *Z80ReadProgHandler)(UINT32 a);
+typedef void (__fastcall *Z80WriteProgHandler)(UINT32 a, UINT8 v);
+typedef UINT8 (__fastcall *Z80ReadOpHandler)(UINT32 a);
+typedef UINT8 (__fastcall *Z80ReadOpArgHandler)(UINT32 a);
 
 void Z80SetIOReadHandler(Z80ReadIoHandler handler);
 void Z80SetIOWriteHandler(Z80WriteIoHandler handler);

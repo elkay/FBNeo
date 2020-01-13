@@ -331,7 +331,7 @@ void ArmReset(void)
 
 static int end_run = 0;
 
-int ArmRun( int cycles )
+INT32 ArmRun( INT32 cycles )
 {
 	UINT32 pc;
 	UINT32 insn;
@@ -482,7 +482,7 @@ static void arm_check_irq_state(void)
 	}
 }
 
-void arm_set_irq_line(int irqline, int state)
+void arm_set_irq_line(INT32 irqline, INT32 state)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_ARMInitted) bprintf(PRINT_ERROR, _T("arm_set_irq_line called without init\n"));
@@ -1362,7 +1362,7 @@ static void HandleCoPro( UINT32 insn)
 }
 
 // burn some cycles
-void ArmIdleCycles(int cycles)
+void ArmIdleCycles(INT32 cycles)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_ARMInitted) bprintf(PRINT_ERROR, _T("ArmIdleCycles called without init\n"));
@@ -1386,7 +1386,7 @@ unsigned int ArmGetPc(INT32)
 }
 
 // get the remaining cycles left to run
-unsigned int ArmRemainingCycles()
+UINT32 ArmRemainingCycles()
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_ARMInitted) bprintf(PRINT_ERROR, _T("ArmRemainingCycles called without init\n"));
@@ -1396,7 +1396,7 @@ unsigned int ArmRemainingCycles()
 }
 
 // get the total of cycles run
-int ArmGetTotalCycles()
+INT32 ArmGetTotalCycles()
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_ARMInitted) bprintf(PRINT_ERROR, _T("ArmGetTotalCycles called without init\n"));
@@ -1432,7 +1432,7 @@ void ArmNewFrame()
 	arm.ArmTotalCycles = 0;
 }
 
-int ArmScan(int nAction)
+INT32 ArmScan(INT32 nAction)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_ARMInitted) bprintf(PRINT_ERROR, _T("ArmScan called without init\n"));

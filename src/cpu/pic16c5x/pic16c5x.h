@@ -42,7 +42,7 @@ enum
  *  the value if known (available in HEX dumps of the ROM).
  */
 
-void pic16c5x_config(int data);
+void pic16c5x_config(INT32 data);
 
 
 /****************************************************************************

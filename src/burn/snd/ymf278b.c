@@ -425,7 +425,7 @@ static void irq_check()
 		m_irq_handler(0, m_irq_line);
 }
 
-int ymf278b_timer_over(int num, int timer)
+INT32 ymf278b_timer_over(INT32 num, INT32 timer)
 {
 	if(!(m_enable & (0x20 << (timer ^ 1))))
 	{

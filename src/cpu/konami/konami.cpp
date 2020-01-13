@@ -64,8 +64,8 @@ typedef struct
 	UINT8	nmi_state;
 	INT32   nTotalCycles;
 	INT32   hold_irq;
-	int     (*irq_callback)(int irqline);
-	void 	(*setlines_callback)( int lines ); /* callback called when A16-A23 are set */
+	INT32   (*irq_callback)(INT32 irqline);
+	void 	(*setlines_callback)( INT32 lines ); /* callback called when A16-A23 are set */
 } konami_Regs;
 
 /* flag bits in the cc register */
@@ -409,7 +409,7 @@ static void konami_set_context(void *src)
 /****************************************************************************/
 /* Reset registers to their initial values                                  */
 /****************************************************************************/
-void konami_init(int (*irqcallback)(int))
+void konami_init(INT32 (*irqcallback)(INT32))
 {
 	konami.irq_callback = irqcallback;
 }
@@ -450,7 +450,7 @@ void konami_set_irq_hold(INT32 irq)
 	konami.hold_irq = 1 << irq;
 }
 
-void konami_set_irq_line(int irqline, int state)
+void konami_set_irq_line(INT32 irqline, INT32 state)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_KonamiInitted) bprintf(PRINT_ERROR, _T("konami_set_irq_line called without init\n"));
@@ -508,7 +508,7 @@ void konami_set_irq_line(int irqline, int state)
 static int end_run = 0;
 
 /* execute instructions on this CPU until icount expires */
-int konamiRun(int cycles)
+INT32 konamiRun(INT32 cycles)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_KonamiInitted) bprintf(PRINT_ERROR, _T("konamiRun called without init\n"));
@@ -550,7 +550,7 @@ int konamiRun(int cycles)
 	return cycles;
 }
 
-int konamiCpuScan(int nAction)
+INT32 konamiCpuScan(INT32 nAction)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_KonamiInitted) bprintf(PRINT_ERROR, _T("konamiCpuScan called without init\n"));
@@ -590,7 +590,7 @@ INT32 konamiIdle(INT32 cycles)
 	return konami_ICount;
 }
 
-void konamiSetlinesCallback(void  (*setlines_callback)(int lines))
+void konamiSetlinesCallback(void  (*setlines_callback)(INT32 lines))
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_KonamiInitted) bprintf(PRINT_ERROR, _T("konamiSetlinesCallback called without init\n"));
@@ -599,7 +599,7 @@ void konamiSetlinesCallback(void  (*setlines_callback)(int lines))
 	konami.setlines_callback = setlines_callback;
 }
 
-int konamiTotalCycles()
+INT32 konamiTotalCycles()
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_KonamiInitted) bprintf(PRINT_ERROR, _T("konamiTotalCycles called without init\n"));

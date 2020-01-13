@@ -82,7 +82,7 @@ static int total_cycles = 0;
 static int curr_cycles = 0;
 static int end_run = 0;
 
-void Arm7Open(int ) 
+void Arm7Open(INT32 ) 
 {
 
 }
@@ -92,7 +92,7 @@ void Arm7Close()
 
 }
 
-int Arm7TotalCycles()
+INT32 Arm7TotalCycles()
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_ARM7Initted) bprintf(PRINT_ERROR, _T("Arm7TotalCycles called without init\n"));
@@ -128,7 +128,7 @@ void Arm7BurnCycles(int cycles)
 	ARM7_ICOUNT -= cycles;
 }
 
-INT32 Arm7Idle(int cycles)
+INT32 Arm7Idle(INT32 cycles)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_ARM7Initted) bprintf(PRINT_ERROR, _T("Arm7Idle called without init\n"));
@@ -176,7 +176,7 @@ static void arm7_exit()
     
 }*/
 
-int Arm7Run(int cycles)
+INT32 Arm7Run(INT32 cycles)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_ARM7Initted) bprintf(PRINT_ERROR, _T("Arm7Run called without init\n"));
@@ -186,7 +186,7 @@ int Arm7Run(int cycles)
 #include "arm7exec.c"
 }
 
-void arm7_set_irq_line(int irqline, int state)
+void arm7_set_irq_line(INT32 irqline, INT32 state)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_ARM7Initted) bprintf(PRINT_ERROR, _T("arm7_set_irq_line called without init\n"));
@@ -196,7 +196,7 @@ void arm7_set_irq_line(int irqline, int state)
 	arm7_core_set_irq_line(irqline,state);
 }
 
-int Arm7Scan(int nAction)
+INT32 Arm7Scan(INT32 nAction)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_ARM7Initted) bprintf(PRINT_ERROR, _T("Arm7Scan called without init\n"));

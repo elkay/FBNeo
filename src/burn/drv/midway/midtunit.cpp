@@ -399,12 +399,12 @@ static INT32 LoadSoundBanksNbajam()
     return 0;
 }
 
-static void TUnitToShift(UINT32 address, void *dst)
+static void TUnitToShift(tms::dword address, void *dst)
 {
     memcpy(dst, &DrvVRAM16[(address >> 3)], 4096/2);
 }
 
-static void TUnitFromShift(UINT32 address, void *src)
+static void TUnitFromShift(tms::dword address, void *src)
 {
     memcpy(&DrvVRAM16[(address >> 3)], src, 4096/2);
 }

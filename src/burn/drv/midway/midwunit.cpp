@@ -300,12 +300,12 @@ void WolfSoundWrite(UINT32 address, UINT16 value)
 	Dcs2kRun(20);
 }
 
-static void WolfUnitToShift(UINT32 address, void *dst)
+static void WolfUnitToShift(tms::dword address, void *dst)
 {
 	memcpy(dst, &DrvVRAM16[(address >> 3)], 4096/2);
 }
 
-static void WolfUnitFromShift(UINT32 address, void *src)
+static void WolfUnitFromShift(tms::dword address, void *src)
 {
 	memcpy(&DrvVRAM16[(address >> 3)], src, 4096/2);
 }

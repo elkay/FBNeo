@@ -407,7 +407,7 @@ static void K051316Callback(INT32 *code,INT32 *color,INT32 *flags)
 	*color = 0x30 | ((*color & 0x3c) >> 2);
 }
 
-static void DrvK007232VolCallback0(int v)
+static void DrvK007232VolCallback0(INT32 v)
 {
 	K007232SetVolume(0,0,(v >> 4) * 0x11,0);
 	K007232SetVolume(0,1,0,(v & 0x0f) * 0x11);

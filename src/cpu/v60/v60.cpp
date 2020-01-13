@@ -483,7 +483,7 @@ static struct v60info {
 	Flags flags;
 	UINT8 irq_line;
 	UINT8 nmi_line;
-	int (*irq_cb)(int irqline);
+	INT32 (*irq_cb)(INT32 irqline);
 	UINT32 PPC;
 	UINT32 current_cycles;
 	UINT32 cycles;
@@ -758,7 +758,7 @@ static UINT32 opUNHANDLED(void)
 // Opcode jump table
 #include "optable.c"
 
-static int v60_default_irq_cb(int )
+static INT32 v60_default_irq_cb(INT32 )
 {
 	return 0;
 }
@@ -858,7 +858,7 @@ INT32 v60Scan(INT32 nAction)
 	return 0;
 }
 
-void v60SetIRQCallback(int (*callback)(int irqline))
+void v60SetIRQCallback(INT32 (*callback)(INT32 irqline))
 {
 	v60.irq_cb = callback;
 }
@@ -880,7 +880,7 @@ void v60Reset()
 	_Z	= 0;
 }
 
-void v60Open(int)
+void v60Open(INT32)
 {
 
 }
@@ -953,7 +953,7 @@ static void set_irq_line(int irqline, int state)
 
 // Actual cycles/instruction is unknown
 
-INT32 v60Run(int cycles)
+INT32 v60Run(INT32 cycles)
 {
 	UINT32 inc;
 

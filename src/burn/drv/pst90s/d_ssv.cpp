@@ -3422,7 +3422,7 @@ static void draw_16x16_tile_line(const rectangle *cliprect, INT32 flipx, INT32 f
 	drawgfx_line(cliprect, gfx, realcode, color, flipx, flipy, sx, sy, shadow, realline, tileline);
 }
 
-static inline void get_tile(INT32 x, INT32 y, INT32 size, INT32 page, int& code, int& attr, int& flipx, int& flipy)
+static inline void get_tile(INT32 x, INT32 y, INT32 size, INT32 page, INT32& code, INT32& attr, INT32& flipx, INT32& flipy)
 {
 	UINT16 *ssv_scroll = (UINT16*)DrvScrollRAM;
 	UINT16 *spriteram16 = (UINT16*)DrvSprRAM;

@@ -52,7 +52,7 @@ typedef struct
 #endif
 	UINT8 io_buffer;	/* last value written to the PSG, timer, and interrupt pages */
 
-	int (*irq_callback)(int irqline);
+	INT32 (*irq_callback)(INT32 irqline);
 }   h6280_Regs;
 
 void h6280_set_context(void *ptr);

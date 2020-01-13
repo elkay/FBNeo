@@ -1012,7 +1012,7 @@ void K056832Draw(INT32 layer, UINT32 flags, UINT32 priority)
 	m_active_layer = last_active;
 }
 
-int K056832GetLayerAssociation()
+INT32 K056832GetLayerAssociation()
 {
 	return m_layer_association;
 }

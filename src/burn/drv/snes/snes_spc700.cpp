@@ -2,7 +2,7 @@
 #include "snes.h"
 
 
-int spctotal,dsptotal;
+INT32 spctotal,dsptotal;
 
 double spccycles;
 double spctotal2;

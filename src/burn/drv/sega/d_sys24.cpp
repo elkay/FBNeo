@@ -2200,7 +2200,7 @@ static inline UINT16 sys24_mixer_get_reg(INT32 reg)
 	return *((UINT16*)(DrvMixerRegs + ((reg & 0xf) * 2)));
 }
 
-static INT32 layer_cmp(const void *pl1, const void *pl2)
+static int layer_cmp(const void *pl1, const void *pl2)
 {
 	static const INT32 default_pri[12] = { 0, 1, 2, 3, 4, 5, 6, 7, -4, -3, -2, -1 };
 	INT32 l1 = *(INT32 *)pl1;

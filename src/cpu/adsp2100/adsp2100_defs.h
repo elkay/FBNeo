@@ -33,7 +33,7 @@
 #define logerror(...)
 #define fatalerror(...)
 
-typedef int (*cpu_irq_callback)(int state);
+typedef INT32 (*cpu_irq_callback)(INT32 state);
 
 /* register definitions */
 enum
@@ -53,9 +53,9 @@ enum
 struct ADSP2100STATE;
 
 /* transmit and receive data callbacks types */
-typedef INT32 (*adsp21xx_rx_func)(ADSP2100STATE *adsp, int port);
-typedef void  (*adsp21xx_tx_func)(ADSP2100STATE *adsp, int port, INT32 data);
-typedef void  (*adsp21xx_timer_func)(ADSP2100STATE *adsp, int enable);
+typedef INT32 (*adsp21xx_rx_func)(ADSP2100STATE *adsp, INT32 port);
+typedef void  (*adsp21xx_tx_func)(ADSP2100STATE *adsp, INT32 port, INT32 data);
+typedef void  (*adsp21xx_timer_func)(ADSP2100STATE *adsp, INT32 enable);
 
 typedef struct _adsp21xx_config adsp21xx_config;
 struct _adsp21xx_config

@@ -116,10 +116,10 @@
 #define NEC_INLINE
 #define NEC_CPU_CPP
 
-unsigned char cpu_readmem20_op(unsigned int);
-unsigned char cpu_readmem20_arg(unsigned int);
-unsigned char cpu_readport(unsigned int);
-void cpu_writeport(unsigned int,unsigned int);
+UINT8 cpu_readmem20_op(UINT32);
+UINT8 cpu_readmem20_arg(UINT32);
+UINT8 cpu_readport(UINT32);
+void cpu_writeport(UINT32,UINT32);
 
 static NEC_INLINE void write_mem_word(unsigned int a, unsigned short d)
 {
@@ -299,7 +299,7 @@ static void external_int(nec_state_t *nec_state)
 
 /*****************************************************************************/
 
-void nec_set_irq_line_and_vector(int irqline, int vector, int state)
+void nec_set_irq_line_and_vector(INT32 irqline, INT32 vector, INT32 state)
 {
 	nec_state_t *nec_state = sChipsPtr;
 
@@ -364,7 +364,7 @@ void nec_init(int cpu)
 	memset(nec_state, 0, sizeof(*nec_state));
 }
 
-void necCpuOpen(int cpu)
+void necCpuOpen(INT32 cpu)
 {
 	sChipsPtr = &sChips[cpu];
 }
@@ -398,12 +398,12 @@ void necRunEnd()
 	sChipsPtr->stop_run = 1;
 }
 
-void necIdle(int cycles)
+void necIdle(INT32 cycles)
 {
 	sChipsPtr->cycles_total += cycles;
 }
 
-int nec_execute(int cycles)
+INT32 nec_execute(INT32 cycles)
 {
 	nec_state_t *nec_state = sChipsPtr;
 	int prev_ICount;
@@ -446,7 +446,7 @@ int nec_execute(int cycles)
 	return cycles;
 }
 
-void necInit(int cpu, int type)
+void necInit(INT32 cpu, INT32 type)
 {
 	nec_state_t *nec_state = &sChips[cpu];
 
@@ -486,7 +486,7 @@ void necInit(int cpu, int type)
 	}
 }
 
-int necGetPC(int n)
+INT32 necGetPC(INT32 n)
 {
 	if (n == -1) { // current cpu
 		return ((sChipsPtr->sregs[PS]<<4) + sChipsPtr->ip);
@@ -496,7 +496,7 @@ int necGetPC(int n)
 	}
 }
 
-void necScan(int cpu, int nAction)
+void necScan(INT32 cpu, INT32 nAction)
 {
 	nec_state_t *nec_state = &sChips[cpu];
 

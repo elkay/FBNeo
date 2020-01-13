@@ -109,8 +109,8 @@ typedef INT16 FMSAMPLE;
 typedef unsigned char  FMSAMPLE;
 #endif
 
-typedef void (*FM_TIMERHANDLER)(int n,int c,int cnt,double stepTime);
-typedef void (*FM_IRQHANDLER)(int n,int irq);
+typedef void (*FM_TIMERHANDLER)(INT32 n,INT32 c,INT32 cnt,double stepTime);
+typedef void (*FM_IRQHANDLER)(INT32 n,INT32 irq);
 /* FM_TIMERHANDLER : Stop or Start timer         */
 /* int n          = chip number                  */
 /* int c          = Channel 0=TimerA,1=TimerB    */
@@ -168,14 +168,14 @@ UINT8 YM2203Read(int n,int a);
 /*
 **	Timer OverFlow
 */
-int YM2203TimerOver(int n, int c);
+INT32 YM2203TimerOver(INT32 n, INT32 c);
 
 #endif /* BUILD_YM2203 */
 
 #if BUILD_YM2608
 /* -------------------- YM2608(OPNA) Interface -------------------- */
 int YM2608Init(int num, int baseclock, int rate,
-               void **pcmroma,int *pcmsizea, UINT8 *irom,
+               void **pcmroma,INT32 *pcmsizea, UINT8 *irom,
                FM_TIMERHANDLER TimerHandler,FM_IRQHANDLER IRQHandler);
 void YM2608Shutdown(void);
 void YM2608ResetChip(int num);
@@ -183,13 +183,13 @@ void YM2608UpdateOne(int num, INT16 **buffer, int length);
 
 int YM2608Write(int n, int a,UINT8 v);
 UINT8 YM2608Read(int n,int a);
-int YM2608TimerOver(int n, int c );
+INT32 YM2608TimerOver(INT32 n, INT32 c );
 #endif /* BUILD_YM2608 */
 
 #if (BUILD_YM2610||BUILD_YM2610B)
 /* -------------------- YM2610(OPNB) Interface -------------------- */
 int YM2610Init(int num, int baseclock, int rate,
-               void **pcmroma,int *pcmasize,void **pcmromb,int *pcmbsize,
+               void **pcmroma,INT32 *pcmasize,void **pcmromb,INT32 *pcmbsize,
                FM_TIMERHANDLER TimerHandler,FM_IRQHANDLER IRQHandler);
 void YM2610SetRom(int num,
 				void *pcmroma,int pcmsizea,void *pcmromb,int pcmsizeb);
@@ -202,7 +202,7 @@ void YM2610BUpdateOne(int num, INT16 **buffer, int length);
 
 int YM2610Write(int n, int a,UINT8 v);
 UINT8 YM2610Read(int n,int a);
-int YM2610TimerOver(int n, int c );
+INT32 YM2610TimerOver(INT32 n, INT32 c );
 #endif /* BUILD_YM2610 */
 
 #if BUILD_YM2612
@@ -214,7 +214,7 @@ void YM2612UpdateOne(int num, INT16 **buffer, int length);
 
 int YM2612Write(int n, int a,UINT8 v);
 UINT8 YM2612Read(int n,int a);
-int YM2612TimerOver(int n, int c );
+INT32 YM2612TimerOver(INT32 n, INT32 c );
 #endif /* BUILD_YM2612 */
 
 #if 0 //BUILD_YM2151

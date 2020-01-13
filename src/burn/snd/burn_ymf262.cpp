@@ -166,7 +166,7 @@ UINT8 BurnYMF262Read(INT32 nAddress)
 
 
 // ----------------------------------------------------------------------------
-static int ymf262_timerover(int /*num*/, int c)
+static INT32 ymf262_timerover(INT32 /*num*/, INT32 c)
 {
 	return ymf262_timer_over(ymfchip, c);
 }

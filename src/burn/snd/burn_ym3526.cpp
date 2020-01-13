@@ -379,7 +379,7 @@ static void YM3526UpdateNormal(INT16* pSoundBuf, INT32 nSegmentEnd)
 // ----------------------------------------------------------------------------
 // Callbacks for YM3526 core
 
-void BurnYM3526UpdateRequest(int, int)
+void BurnYM3526UpdateRequest(INT32, INT32)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugSnd_YM3526Initted) bprintf(PRINT_ERROR, _T("BurnYM3526UpdateRequest called without init\n"));

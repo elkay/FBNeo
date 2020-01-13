@@ -22,9 +22,9 @@ void KonamiICReset();
 void KonamiICExit();
 void KonamiICScan(INT32 nAction);
 
-void konami_sortlayers3( int *layer, int *pri );
-void konami_sortlayers4( int *layer, int *pri );
-void konami_sortlayers5( int *layer, int *pri );
+void konami_sortlayers3( INT32 *layer, INT32 *pri );
+void konami_sortlayers4( INT32 *layer, INT32 *pri );
+void konami_sortlayers5( INT32 *layer, INT32 *pri );
 
 void KonamiRecalcPalette(UINT8 *src, UINT32 *dst, INT32 len);
 
@@ -182,9 +182,9 @@ void K056832SetExtLinescroll();
 void K056832SetLinemap();
 INT32 K056832IsIrqEnabled();
 void K056832ReadAvac(INT32 *mode, INT32 *data);
-UINT16 K056832ReadRegister(int reg);
+UINT16 K056832ReadRegister(INT32 reg);
 INT32 K056832GetLookup(INT32 bits);
-void K056832SetTileBank(int bank);
+void K056832SetTileBank(INT32 bank);
 void K056832WordWrite(INT32 offset, UINT16 data);
 void K056832ByteWrite(INT32 offset, UINT8 data);
 UINT16 K056832RomWordRead(UINT16 offset);
@@ -341,11 +341,11 @@ extern UINT16 *m_k053936_0_linectrl;
 extern UINT16 *K053936_external_bitmap;
 
 void K053936GP_set_colorbase(INT32 chip, INT32 color_base);
-void K053936GP_enable(int chip, int enable);
-void K053936GP_set_offset(int chip, int xoffs, int yoffs);
-void K053936GP_clip_enable(int chip, int status);
-void K053936GP_set_cliprect(int chip, int minx, int maxx, int miny, int maxy);
-void K053936GP_0_zoom_draw(UINT16 *bitmap, int tilebpp, int blend, int alpha, int pixeldouble_output, UINT16* temp_m_k053936_0_ctrl_16, UINT16* temp_m_k053936_0_linectrl_16,UINT16* temp_m_k053936_0_ctrl, UINT16* temp_m_k053936_0_linectrl);
+void K053936GP_enable(INT32 chip, INT32 enable);
+void K053936GP_set_offset(INT32 chip, INT32 xoffs, INT32 yoffs);
+void K053936GP_clip_enable(INT32 chip, INT32 status);
+void K053936GP_set_cliprect(INT32 chip, INT32 minx, INT32 maxx, INT32 miny, INT32 maxy);
+void K053936GP_0_zoom_draw(UINT16 *bitmap, INT32 tilebpp, INT32 blend, INT32 alpha, INT32 pixeldouble_output, UINT16* temp_m_k053936_0_ctrl_16, UINT16* temp_m_k053936_0_linectrl_16,UINT16* temp_m_k053936_0_ctrl, UINT16* temp_m_k053936_0_linectrl);
 void K053936GpInit();
 void K053936GPExit();
 
@@ -390,14 +390,14 @@ void K054338Exit();
 void K054338Scan(INT32 nAction);
 void K054338WriteWord(INT32 offset, UINT16 data);
 void K054338WriteByte(INT32 offset, UINT8 data);
-INT32 K054338_read_register(int reg);
+INT32 K054338_read_register(INT32 reg);
 void K054338_fill_solid_bg();
 void K054338_fill_backcolor(int palette_offset, int mode);
-INT32 K054338_set_alpha_level(int pblend);
+INT32 K054338_set_alpha_level(INT32 pblend);
 INT32 K054338_alpha_level_moo(INT32 pblend);
-void K054338_invert_alpha(int invert);
+void K054338_invert_alpha(INT32 invert);
 void K054338_update_all_shadows(INT32 rushingheroes_hack);
-void K054338_export_config(int **shdRGB);
+void K054338_export_config(INT32 **shdRGB);
 
 extern INT32 m_shd_rgb[12];
 
@@ -501,8 +501,8 @@ void K055555Scan(INT32 nAction);
 #define GXSUB_5BPP      0x05    //  32 colors
 #define GXSUB_8BPP      0x08    // 256 colors
 
-void konamigx_mixer_init(int objdma);
+void konamigx_mixer_init(INT32 objdma);
 void konamigx_mixer_exit();
-void konamigx_mixer_primode(int mode);
-void konamigx_mixer(int sub1 /*extra tilemap 1*/, int sub1flags, int sub2 /*extra tilemap 2*/, int sub2flags, int mixerflags, int extra_bitmap /*extra tilemap 3*/, int rushingheroes_hack);
+void konamigx_mixer_primode(INT32 mode);
+void konamigx_mixer(INT32 sub1 /*extra tilemap 1*/, INT32 sub1flags, INT32 sub2 /*extra tilemap 2*/, INT32 sub2flags, INT32 mixerflags, INT32 extra_bitmap /*extra tilemap 3*/, INT32 rushingheroes_hack);
 extern INT32 konamigx_mystwarr_kludge;

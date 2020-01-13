@@ -369,7 +369,7 @@ static void adpcm_int_1()
 	spd_adpcm_int(1);
 }
 
-static void DrvFMIRQHandler(int, INT32 nStatus)
+static void DrvFMIRQHandler(INT32, INT32 nStatus)
 {
 	M6809SetIRQLine(1/*FIRQ*/, nStatus ? CPU_IRQSTATUS_ACK : CPU_IRQSTATUS_NONE);
 }

@@ -91,13 +91,13 @@ struct z80ctc
 	UINT8				vector;				/* interrupt vector */
 	ctc_channel			channel[4];			/* data for each channel */
 
-	void                (*intr)(int which);	/* interrupt callback */
-	void                (*zc[4])(int, UINT8); /* zero crossing callbacks */
+	void                (*intr)(INT32 which);	/* interrupt callback */
+	void                (*zc[4])(INT32, UINT8); /* zero crossing callbacks */
 };
 
 static z80ctc *ctc = NULL;
 
-static void timercallback(int param); // forward
+static void timercallback(INT32 param); // forward
 
 // simple timer system -dink 2019
 // note: all time is in z80-cycles relative to the cpu using this ctc.
@@ -110,7 +110,7 @@ struct timer_type
 	INT32 timer_param;
 };
 
-static void (*timer_exec[4])(int);
+static void (*timer_exec[4])(INT32);
 
 static timer_type timers[TIMERS_MAX];
 
@@ -197,7 +197,7 @@ static void interrupt_check()
 }
 
 
-static void timercallback(int param)
+static void timercallback(INT32 param)
 {
 	ctc_channel *channel = &ctc->channel[param];
 
@@ -519,7 +519,7 @@ void z80ctc_irq_reti()
 	//logerror("z80ctc_irq_reti: failed to find an interrupt to clear IEO on!\n");
 }
 
-void z80ctc_init(INT32 clock, INT32 notimer, void (*intr)(int), void (*zc0)(int, UINT8), void (*zc1)(int, UINT8), void (*zc2)(int, UINT8))
+void z80ctc_init(INT32 clock, INT32 notimer, void (*intr)(INT32), void (*zc0)(INT32, UINT8), void (*zc1)(INT32, UINT8), void (*zc2)(INT32, UINT8))
 {
 	ctc = (z80ctc *)BurnMalloc(sizeof(z80ctc));
 	ctc->clock = clock;

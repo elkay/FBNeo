@@ -218,27 +218,27 @@
 
 /* Reset callback */
 void M68KResetCallback(void);
-int M68KIRQAcknowledge(int nIRQ);
+INT32 M68KIRQAcknowledge(INT32 nIRQ);
 void M68KRTECallback(void);
-void M68KcmpildCallback(unsigned int val, int reg);
-int M68KTASCallback(void);
+void M68KcmpildCallback(UINT32 val, INT32 reg);
+INT32 M68KTASCallback(void);
 
-unsigned int __fastcall M68KFetchByte(unsigned int a);
-unsigned int __fastcall M68KFetchWord(unsigned int a);
-unsigned int __fastcall M68KFetchLong(unsigned int a);
+UINT32 __fastcall M68KFetchByte(UINT32 a);
+UINT32 __fastcall M68KFetchWord(UINT32 a);
+UINT32 __fastcall M68KFetchLong(UINT32 a);
 
-extern unsigned int (*SekDbgFetchByteDisassembler)(unsigned int);
-extern unsigned int (*SekDbgFetchWordDisassembler)(unsigned int);
-extern unsigned int (*SekDbgFetchLongDisassembler)(unsigned int);
+extern UINT32 (*SekDbgFetchByteDisassembler)(UINT32);
+extern UINT32 (*SekDbgFetchWordDisassembler)(UINT32);
+extern UINT32 (*SekDbgFetchLongDisassembler)(UINT32);
 
 #if defined FBNEO_DEBUG
-extern unsigned int (__fastcall *M68KReadByteDebug)(unsigned int);
-extern unsigned int (__fastcall *M68KReadWordDebug)(unsigned int);
-extern unsigned int (__fastcall *M68KReadLongDebug)(unsigned int);
+extern UINT32 (__fastcall *M68KReadByteDebug)(UINT32);
+extern UINT32 (__fastcall *M68KReadWordDebug)(UINT32);
+extern UINT32 (__fastcall *M68KReadLongDebug)(UINT32);
 
-extern void (__fastcall *M68KWriteByteDebug)(unsigned int, unsigned int);
-extern void (__fastcall *M68KWriteWordDebug)(unsigned int, unsigned int);
-extern void (__fastcall *M68KWriteLongDebug)(unsigned int, unsigned int);
+extern void (__fastcall *M68KWriteByteDebug)(UINT32, UINT32);
+extern void (__fastcall *M68KWriteWordDebug)(UINT32, UINT32);
+extern void (__fastcall *M68KWriteLongDebug)(UINT32, UINT32);
 #else
 unsigned int __fastcall M68KReadByte(unsigned int a);
 unsigned int __fastcall M68KReadWord(unsigned int a);

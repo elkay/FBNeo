@@ -107,7 +107,7 @@ ide_disk::~ide_disk()
 	}
 }
 
-void ide_disk::set_irq_callback(void (*irq)(int))
+void ide_disk::set_irq_callback(void (*irq)(INT32))
 {
     m_irq_callback = irq;
 }

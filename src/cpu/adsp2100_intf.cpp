@@ -37,11 +37,11 @@ static pAdsp2100TimerCallback pTimerCallback;
 static FILE *pTrace;
 #endif
 
-static unsigned short DefReadWord(unsigned int a) { xlog("DefReadWord %x\n", a); return 0; }
-static unsigned int DefReadLong(unsigned int a) { xlog("DefReadLong %x\n", a); return 0; }
+static UINT16 DefReadWord(UINT32 a) { xlog("DefReadWord %x\n", a); return 0; }
+static UINT32 DefReadLong(UINT32 a) { xlog("DefReadLong %x\n", a); return 0; }
 
-static void DefWriteWord(unsigned int a, unsigned short value) { xlog("DefWriteWord %x - %x\n", a, value);  }
-static void DefWriteLong(unsigned int a, unsigned int value) { xlog("DefWriteLog %x - %x\n", a, value); }
+static void DefWriteWord(UINT32 a, UINT16 value) { xlog("DefWriteWord %x - %x\n", a, value);  }
+static void DefWriteLong(UINT32 a, UINT32 value) { xlog("DefWriteLog %x - %x\n", a, value); }
 
 static void ResetMemoryMap()
 {
@@ -62,20 +62,20 @@ static void ResetMemoryMap()
     }
 }
 
-static int RxCallback(adsp2100_state *adsp, int port)
+static INT32 RxCallback(adsp2100_state *adsp, INT32 port)
 {
     if (pRxCallback)
         return pRxCallback(port);
     return 0;
 }
 
-static void TxCallback(adsp2100_state *adsp, int port, int data)
+static void TxCallback(adsp2100_state *adsp, INT32 port, INT32 data)
 {
     if (pTxCallback)
         pTxCallback(port, data);
 }
 
-static void TimerCallback(adsp2100_state *adsp, int enable)
+static void TimerCallback(adsp2100_state *adsp, INT32 enable)
 {
     if (pTimerCallback)
         pTimerCallback(enable);
@@ -159,7 +159,7 @@ void Adsp2100SetTimerCallback(pAdsp2100TimerCallback cb)
     pTimerCallback = cb;
 }
 
-void Adsp2100SetIRQCallback(int (*cb)(int))
+void Adsp2100SetIRQCallback(INT32 (*cb)(INT32))
 {
     if (pADSP)
         pADSP->irq_callback = cb;

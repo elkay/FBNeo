@@ -231,7 +231,7 @@ static UINT8 __fastcall onetwo_sound_read_port(UINT16 port)
 	return 0;
 }
 
-static void DrvFMIRQHandler(int, INT32 nStatus)
+static void DrvFMIRQHandler(INT32, INT32 nStatus)
 {
 	ZetSetIRQLine(0, ((nStatus) ? CPU_IRQSTATUS_ACK : CPU_IRQSTATUS_NONE));
 }

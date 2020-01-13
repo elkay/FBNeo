@@ -265,7 +265,7 @@ static UINT8 kncljoe_sound_read_port(UINT16 port)
 	return 0;
 }
 
-static UINT8 ay8910_port_A_read(unsigned int)
+static UINT8 ay8910_port_A_read(UINT32)
 {
 	return *soundlatch;
 }
@@ -360,7 +360,7 @@ static INT32 MemIndex()
 
 	DrvColPROM		= Next; Next += 0x000500;
 
-	DrvPalette		= (unsigned int*)Next; Next += 0x0100 * sizeof(INT32);
+	DrvPalette		= (UINT32*)Next; Next += 0x0100 * sizeof(INT32);
 
 	AllRam			= Next;
 

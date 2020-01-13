@@ -3,15 +3,15 @@
 
 #include "adsp2100/adsp2100_defs.h"
 
-typedef unsigned short (*pAdsp2100ReadWordHandler)(unsigned int a);
-typedef void (*pAdsp2100WriteWordHandler)(unsigned int a, unsigned short d);
+typedef UINT16 (*pAdsp2100ReadWordHandler)(UINT32 a);
+typedef void (*pAdsp2100WriteWordHandler)(UINT32 a, UINT16 d);
 
-typedef unsigned int (*pAdsp2100ReadLongHandler)(unsigned int a);
-typedef void (*pAdsp2100WriteLongHandler)(unsigned int a, unsigned int d);
+typedef UINT32 (*pAdsp2100ReadLongHandler)(UINT32 a);
+typedef void (*pAdsp2100WriteLongHandler)(UINT32 a, UINT32 d);
 
-typedef int (*pAdsp2100RxCallback)(int port);
-typedef void  (*pAdsp2100TxCallback)(int port, int data);
-typedef void (*pAdsp2100TimerCallback)(int enable);
+typedef INT32 (*pAdsp2100RxCallback)(INT32 port);
+typedef void  (*pAdsp2100TxCallback)(INT32 port, INT32 data);
+typedef void (*pAdsp2100TimerCallback)(INT32 enable);
 
 int Adsp2100Init();
 int Adsp2100Exit();
@@ -27,7 +27,7 @@ void Adsp2100Scan(INT32 nAction);
 void Adsp2100SetRxCallback(pAdsp2100RxCallback cb);
 void Adsp2100SetTxCallback(pAdsp2100TxCallback cb);
 void Adsp2100SetTimerCallback(pAdsp2100TimerCallback cb);
-void Adsp2100SetIRQCallback(int (*irq)(int));
+void Adsp2100SetIRQCallback(INT32 (*irq)(INT32));
 
 int Adsp2100MapMemory(unsigned char* pMemory, unsigned int nStart, unsigned int nEnd, int nType);
 int Adsp2100MapHandler(uintptr_t nHandler, unsigned int nStart, unsigned int nEnd, int nType);

@@ -131,7 +131,7 @@ typedef struct {
 	UINT8	after_EI;			/* are we in the EI shadow? */
 
 	const struct z80_irq_daisy_chain *daisy;
-	int (*irq_callback)(int irqline);
+	INT32 (*irq_callback)(INT32 irqline);
 }	Z180_Regs;
 
 #define CF	0x01
@@ -1786,7 +1786,7 @@ void z180_write_iolines(UINT32 data)
     }
 }
 
-void z180_init(int index, int clock, /*const void *config,*/ int (*irqcallback)(int))
+void z180_init(INT32 index, INT32 clock, /*const void *config,*/ INT32 (*irqcallback)(INT32))
 {
 	Z180.daisy = NULL;
 	/*if (config)
@@ -1816,7 +1816,7 @@ void z180_exit()
 void z180_reset(void)
 {
 //	z80_irq_daisy_chain *save_daisy;
-	int (*save_irqcallback)(int);
+	INT32 (*save_irqcallback)(INT32);
 	int i, p;
 #if BIG_FLAGS_ARRAY
 	int oldval, newval, val;

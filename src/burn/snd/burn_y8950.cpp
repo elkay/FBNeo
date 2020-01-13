@@ -223,7 +223,7 @@ static void Y8950UpdateDummy(INT16* , INT32)
 	return;
 }
 
-static int Y8950StreamCallbackDummy(INT32)
+static INT32 Y8950StreamCallbackDummy(INT32)
 {
 	return 0;
 }

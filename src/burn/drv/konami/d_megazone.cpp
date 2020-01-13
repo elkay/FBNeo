@@ -577,8 +577,8 @@ static INT32 DrvExit()
 
 static void DrvPaletteInit()
 {
-	static const int resistances_rg[3] = { 1000, 470, 220 };
-	static const int resistances_b [2] = { 470, 220 };
+	static const INT32 resistances_rg[3] = { 1000, 470, 220 };
+	static const INT32 resistances_b [2] = { 470, 220 };
 	double rweights[3], gweights[3], bweights[2];
 
 	compute_resistor_weights(0, 255, -1.0,

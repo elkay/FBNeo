@@ -2543,7 +2543,7 @@ UINT8 YM2203Read(int n,int a)
 	return ret;
 }
 
-int YM2203TimerOver(int n,int c)
+INT32 YM2203TimerOver(INT32 n,INT32 c)
 {
 	YM2203 *F2203 = &(FM2203[n]);
 
@@ -3164,7 +3164,7 @@ static void YM2608_deltat_status_reset(UINT8 which, UINT8 changebits)
 }
 /* YM2608(OPNA) */
 int YM2608Init(int num, int clock, int rate,
-               void **pcmrom,int *pcmsize, UINT8 *irom,
+               void **pcmrom,INT32 *pcmsize, UINT8 *irom,
                FM_TIMERHANDLER TimerHandler,FM_IRQHANDLER IRQHandler)
 {
 	int i;
@@ -3468,7 +3468,7 @@ UINT8 YM2608Read(int n,int a)
 	return ret;
 }
 
-int YM2608TimerOver(int n,int c)
+INT32 YM2608TimerOver(INT32 n,INT32 c)
 {
 	YM2608 *F2608 = &(FM2608[n]);
 
@@ -3886,7 +3886,7 @@ static void YM2610_deltat_status_reset(UINT8 which, UINT8 changebits)
 }
 
 int YM2610Init(int num, int clock, int rate,
-               void **pcmroma,int *pcmsizea,void **pcmromb,int *pcmsizeb,
+               void **pcmroma,INT32 *pcmsizea,void **pcmromb,INT32 *pcmsizeb,
                FM_TIMERHANDLER TimerHandler,FM_IRQHANDLER IRQHandler)
 
 {
@@ -4175,7 +4175,7 @@ UINT8 YM2610Read(int n,int a)
 	return ret;
 }
 
-int YM2610TimerOver(int n,int c)
+INT32 YM2610TimerOver(INT32 n,INT32 c)
 {
 	YM2610 *F2610 = &(FM2610[n]);
 
@@ -4577,7 +4577,7 @@ UINT8 YM2612Read(int n,int a)
 	return 0;
 }
 
-int YM2612TimerOver(int n,int c)
+INT32 YM2612TimerOver(INT32 n,INT32 c)
 {
 	YM2612 *F2612 = &(FM2612[n]);
 

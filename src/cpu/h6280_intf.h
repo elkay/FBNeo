@@ -37,7 +37,7 @@ INT32 h6280GetActive();
 
 UINT8 h6280_irq_status_r(UINT32 offset);
 void h6280_irq_status_w(UINT32 offset, UINT8 data);
-void h6280_irqcallback(int (*irqcallback)(int));
+void h6280_irqcallback(INT32 (*irqcallback)(INT32));
 
 UINT8 h6280_timer_r(UINT32);
 void h6280_timer_w(UINT32 offset, UINT8 data);

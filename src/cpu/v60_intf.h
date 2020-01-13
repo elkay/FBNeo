@@ -5,14 +5,14 @@ void v70Init();
 
 void v60Exit();
 void v60Reset();
-void v60Open(int cpu);
+void v60Open(INT32 cpu);
 void v60Close();
 
-INT32 v60Run(int cycles);
+INT32 v60Run(INT32 cycles);
 
 void v60SetIRQLine(INT32 irqline, INT32 state);
 
-void v60SetIRQCallback(int (*callback)(int irqline));
+void v60SetIRQCallback(INT32 (*callback)(INT32 irqline));
 void v60SetWriteByteHandler(void (*write)(UINT32,UINT8));
 void v60SetWriteWordHandler(void (*write)(UINT32,UINT16));
 void v60SetWriteLongHandler(void (*write)(UINT32,UINT32));

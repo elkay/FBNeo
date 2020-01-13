@@ -46,7 +46,7 @@ void  z80pio_reset();
 void  z80pio_scan(INT32 nAction);
 
 // driver stuff:
-void  z80pio_init(void (*intr)(int), UINT8 (*portAread)(int), UINT8 (*portBread)(int), void (*portAwrite)(int, UINT8), void (*portBwrite)(int, UINT8), void (*rdyA)(int), void (*rdyB)(int));
+void  z80pio_init(void (*intr)(INT32), UINT8 (*portAread)(INT32), UINT8 (*portBread)(INT32), void (*portAwrite)(INT32, UINT8), void (*portBwrite)(INT32, UINT8), void (*rdyA)(INT32), void (*rdyB)(INT32));
 void  z80pio_strobeA(int state);
 void  z80pio_strobeB(int state);
 UINT8 z80pio_read(int offset);

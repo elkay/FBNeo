@@ -25,7 +25,7 @@ static INT32 highlight_mode = 0;  // set in driver init.
 static INT32 highlight_over_sprites_mode = 0; // ""
 static INT32 konamiic_shadow_inhibit_layer = 0;
 
-void konami_sortlayers3( int *layer, int *pri )
+void konami_sortlayers3( INT32 *layer, INT32 *pri )
 {
 #define SWAP(a,b) \
 	if (pri[a] < pri[b]) \
@@ -41,7 +41,7 @@ void konami_sortlayers3( int *layer, int *pri )
 #undef  SWAP
 }
 
-void konami_sortlayers4( int *layer, int *pri )
+void konami_sortlayers4( INT32 *layer, INT32 *pri )
 {
 #define SWAP(a,b) \
 	if (pri[a] <= pri[b]) \
@@ -60,7 +60,7 @@ void konami_sortlayers4( int *layer, int *pri )
 #undef  SWAP
 }
 
-void konami_sortlayers5( int *layer, int *pri )
+void konami_sortlayers5( INT32 *layer, INT32 *pri )
 {
 #define SWAP(a,b) \
 	if (pri[a] <= pri[b]) \

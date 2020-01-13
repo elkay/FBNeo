@@ -1,7 +1,7 @@
 #ifndef SERIALPIC
 #define SERIALPIC
 
-void MidwaySerialPicInit(int upper);
+void MidwaySerialPicInit(INT32 upper);
 void MidwaySerialPicReset();
 UINT32 MidwaySerialPicStatus();
 UINT8 MidwaySerialPicRead();

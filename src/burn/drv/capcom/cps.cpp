@@ -461,7 +461,7 @@ static INT32 CpsLoadOneBootlegType3(UINT8 *Tile, INT32 nNum, INT32 nWord, INT32 
 
 static INT32 CpsLoadOneBootlegType3Swap(UINT8 *Tile, INT32 nNum, INT32 nWord, INT32 nShift)
 {
-	UINT8 *Rom = NULL; int nRomLen=0;
+	UINT8 *Rom = NULL; INT32 nRomLen=0;
 	UINT8 *pt = NULL, *pr = NULL;
 	INT32 i;
 

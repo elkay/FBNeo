@@ -351,7 +351,7 @@ static void DrvPaletteInit()
 {
 	UINT32 palette[0x20];
 
-	static const int resistances[4] = { 2200, 1000, 470, 220 };
+	static const INT32 resistances[4] = { 2200, 1000, 470, 220 };
 	double rweights[4], gweights[4], bweights[4];
 
 	compute_resistor_weights(0, 0xff, -1.0,

@@ -400,7 +400,7 @@ int Sh2SetWriteLongHandler(int i, pSh2WriteLongHandler pHandler)
 	return 0;
 }
 
-unsigned char  __fastcall Sh2InnerReadByte(unsigned int a) 
+unsigned char  __fastcall Sh2InnerReadByte(UINT32 a) 
 { 
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_SH2Initted) bprintf(PRINT_ERROR, _T("Sh2InnerReadByte called without init\n"));
@@ -409,7 +409,7 @@ unsigned char  __fastcall Sh2InnerReadByte(unsigned int a)
 	return sh2_internal_r((a & 0x1fc)>>2, ~(0xff << (((~a) & 3)*8))) >> (((~a) & 3)*8); 
 }
 
-unsigned short __fastcall Sh2InnerReadWord(unsigned int a) 
+unsigned short __fastcall Sh2InnerReadWord(UINT32 a) 
 { 
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_SH2Initted) bprintf(PRINT_ERROR, _T("Sh2InnerReadWord called without init\n"));
@@ -418,7 +418,7 @@ unsigned short __fastcall Sh2InnerReadWord(unsigned int a)
 	return sh2_internal_r((a & 0x1fc)>>2, ~(0xffff << (((~a) & 2)*8))) >> (((~a) & 2)*8); 
 }
 
-unsigned int   __fastcall Sh2InnerReadLong(unsigned int a) 
+UINT32   __fastcall Sh2InnerReadLong(UINT32 a) 
 { 
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_SH2Initted) bprintf(PRINT_ERROR, _T("Sh2InnerReadLong called without init\n"));
@@ -427,7 +427,7 @@ unsigned int   __fastcall Sh2InnerReadLong(unsigned int a)
 	return sh2_internal_r((a & 0x1fc)>>2, 0); 
 }
 
-void __fastcall Sh2InnerWriteByte(unsigned int a, unsigned char d) 
+void __fastcall Sh2InnerWriteByte(UINT32 a, unsigned char d) 
 { 
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_SH2Initted) bprintf(PRINT_ERROR, _T("Sh2InnerWriteByte called without init\n"));
@@ -437,7 +437,7 @@ void __fastcall Sh2InnerWriteByte(unsigned int a, unsigned char d)
 	sh2_internal_w((a & 0x1fc)>>2, d << (((~a) & 3)*8), ~(0xff << (((~a) & 3)*8)));
 }
 
-void __fastcall Sh2InnerWriteWord(unsigned int a, unsigned short d) 
+void __fastcall Sh2InnerWriteWord(UINT32 a, unsigned short d) 
 { 
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_SH2Initted) bprintf(PRINT_ERROR, _T("Sh2InnerWriteWord called without init\n"));
@@ -446,7 +446,7 @@ void __fastcall Sh2InnerWriteWord(unsigned int a, unsigned short d)
 	sh2_internal_w((a & 0x1fc)>>2, d << (((~a) & 2)*8), ~(0xffff << (((~a) & 2)*8)));
 }
 
-void __fastcall Sh2InnerWriteLong(unsigned int a, unsigned int d) 
+void __fastcall Sh2InnerWriteLong(UINT32 a, UINT32 d) 
 { 
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_SH2Initted) bprintf(PRINT_ERROR, _T("Sh2InnerWriteLong called without init\n"));
@@ -455,12 +455,12 @@ void __fastcall Sh2InnerWriteLong(unsigned int a, unsigned int d)
 	sh2_internal_w((a & 0x1fc)>>2, d, 0);
 }
 
-unsigned char  __fastcall Sh2EmptyReadByte(unsigned int) { return 0xa5; }
-unsigned short __fastcall Sh2EmptyReadWord(unsigned int) { return 0xa5a5; }
-unsigned int   __fastcall Sh2EmptyReadLong(unsigned int) { return 0xa5a5a5a5; }
-void __fastcall Sh2EmptyWriteByte(unsigned int, unsigned char) { }
-void __fastcall Sh2EmptyWriteWord(unsigned int, unsigned short) { }
-void __fastcall Sh2EmptyWriteLong(unsigned int, unsigned int) { }
+unsigned char  __fastcall Sh2EmptyReadByte(UINT32) { return 0xa5; }
+unsigned short __fastcall Sh2EmptyReadWord(UINT32) { return 0xa5a5; }
+UINT32   __fastcall Sh2EmptyReadLong(UINT32) { return 0xa5a5a5a5; }
+void __fastcall Sh2EmptyWriteByte(UINT32, unsigned char) { }
+void __fastcall Sh2EmptyWriteWord(UINT32, unsigned short) { }
+void __fastcall Sh2EmptyWriteLong(UINT32, UINT32) { }
 
 int Sh2Exit()
 {
@@ -491,7 +491,7 @@ UINT8 Sh2CheatReadByte(UINT32 a)
 	return Sh2ReadByte(a);
 }
 
-int Sh2Init(int nCount)
+INT32 Sh2Init(INT32 nCount)
 {
 	DebugCPU_SH2Initted = 1;
 
@@ -538,7 +538,7 @@ int Sh2Init(int nCount)
 	return 0;
 }
 
-void Sh2Open(const int i)
+void Sh2Open(const INT32 i)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_SH2Initted) bprintf(PRINT_ERROR, _T("Sh2Open called without init\n"));
@@ -564,7 +564,7 @@ void Sh2SetEatCycles(int i)
 	sh2->sh2_eat_cycles = i;
 }
 
-int Sh2GetActive()
+INT32 Sh2GetActive()
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_SH2Initted) bprintf(PRINT_ERROR, _T("Sh2GetActive called without init\n"));
@@ -573,7 +573,7 @@ int Sh2GetActive()
 	return 0;
 }
 
-void Sh2Reset(unsigned int pc, unsigned r15)
+void Sh2Reset(UINT32 pc, UINT32 r15)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_SH2Initted) bprintf(PRINT_ERROR, _T("Sh2Reset called without init\n"));
@@ -3269,7 +3269,7 @@ static UINT32 sh2_internal_r(UINT32 offset, UINT32 /*mem_mask*/)
 
 // -------------------------------------------------------
 
-int Sh2Run(int cycles)
+INT32 Sh2Run(INT32 cycles)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_SH2Initted) bprintf(PRINT_ERROR, _T("Sh2Run called without init\n"));

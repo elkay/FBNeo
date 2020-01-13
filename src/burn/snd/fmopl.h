@@ -28,8 +28,8 @@ typedef INT8 OPLSAMPLE;
 #endif
 
 
-typedef void (*OPL_TIMERHANDLER)(int channel,double interval_Sec);
-typedef void (*OPL_IRQHANDLER)(int param,int irq);
+typedef void (*OPL_TIMERHANDLER)(INT32 channel,double interval_Sec);
+typedef void (*OPL_IRQHANDLER)(INT32 param,INT32 irq);
 typedef void (*OPL_UPDATEHANDLER)(INT32 param,INT32 min_interval_us);
 typedef void (*OPL_PORTHANDLER_W)(int param,unsigned char data);
 typedef unsigned char (*OPL_PORTHANDLER_R)(int param);
@@ -42,7 +42,7 @@ void YM3812Shutdown(void);
 void YM3812ResetChip(int which);
 int  YM3812Write(int which, int a, int v);
 unsigned char YM3812Read(int which, int a);
-int  YM3812TimerOver(int which, int c);
+INT32  YM3812TimerOver(INT32 which, INT32 c);
 void YM3812UpdateOne(int which, INT16 *buffer, int length);
 
 void YM3812SetTimerHandler(int which, OPL_TIMERHANDLER TimerHandler, int channelOffset);
@@ -67,7 +67,7 @@ void YM3526Shutdown(void);
 void YM3526ResetChip(int which);
 int  YM3526Write(int which, int a, int v);
 unsigned char YM3526Read(int which, int a);
-int  YM3526TimerOver(int which, int c);
+INT32  YM3526TimerOver(INT32 which, INT32 c);
 /*
 ** Generate samples for one of the YM3526's
 **
@@ -96,7 +96,7 @@ void Y8950Shutdown (void);
 void Y8950ResetChip (int which);
 int  Y8950Write (int which, int a, int v);
 unsigned char Y8950Read (int which, int a);
-int  Y8950TimerOver (int which, int c);
+INT32  Y8950TimerOver (INT32 which, INT32 c);
 void Y8950UpdateOne (int which, INT16 *buffer, int length);
 
 void Y8950SetTimerHandler (int which, OPL_TIMERHANDLER TimerHandler, int channelOffset);

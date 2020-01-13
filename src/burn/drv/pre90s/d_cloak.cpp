@@ -459,7 +459,7 @@ static INT32 DrvExit()
 
 static void palette_update()
 {
-	static const int resistances_rgb[3] = { 10000, 4700, 2200 };
+	static const INT32 resistances_rgb[3] = { 10000, 4700, 2200 };
 	double weights_rgb[3];
 
 	compute_resistor_weights(0, 0xff, -1.0,

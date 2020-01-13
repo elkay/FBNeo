@@ -1363,7 +1363,7 @@ static UINT8 i8x41_cycles[] = {
  *  Inits CPU emulation
  ****************************************************************************/
 
-void i8x41_init(int (*irqcallback)(int))
+void i8x41_init(INT32 (*irqcallback)(INT32))
 {
 	i8x41.irq_callback = irqcallback;
 #if 0
@@ -1392,7 +1392,7 @@ void i8x41_init(int (*irqcallback)(int))
 
 void i8x41_reset()
 {
-	int (*save_irqcallback)(int) = i8x41.irq_callback;
+	INT32 (*save_irqcallback)(INT32) = i8x41.irq_callback;
 	memset(&i8x41, 0, sizeof(I8X41));
 	i8x41.irq_callback = save_irqcallback;
 

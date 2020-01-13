@@ -63,10 +63,10 @@ struct z80pio_t
 	UINT8 out[2];                         /* output port                    */
 	UINT8 strobe[2];					  /* strobe inputs */
 	UINT8 int_state[2];                   /* interrupt status (daisy chain) */
-	void (*intr)(int which);              /* interrupt callbacks            */
-	void (*rdyr[2])(int data);            /* RDY active callback            */
-	UINT8 (*port_read[2])(int offset);    /* port read callbacks            */
-	void (*port_write[2])(int offset, UINT8 data); /* port write callbacks           */
+	void (*intr)(INT32 which);              /* interrupt callbacks            */
+	void (*rdyr[2])(INT32 data);            /* RDY active callback            */
+	UINT8 (*port_read[2])(INT32 offset);    /* port read callbacks            */
+	void (*port_write[2])(INT32 offset, UINT8 data); /* port write callbacks           */
 };
 
 z80pio_t *z80pio = NULL;
@@ -514,7 +514,7 @@ void z80pio_exit()
 	BurnFree(z80pio);
 }
 
-void z80pio_init(void (*intr)(int), UINT8 (*portAread)(int), UINT8 (*portBread)(int), void (*portAwrite)(int, UINT8), void (*portBwrite)(int, UINT8), void (*rdyA)(int), void (*rdyB)(int))
+void z80pio_init(void (*intr)(INT32), UINT8 (*portAread)(INT32), UINT8 (*portBread)(INT32), void (*portAwrite)(INT32, UINT8), void (*portBwrite)(INT32, UINT8), void (*rdyA)(INT32), void (*rdyB)(INT32))
 {
 	z80pio = (z80pio_t *)BurnMalloc(sizeof(z80pio_t));
 

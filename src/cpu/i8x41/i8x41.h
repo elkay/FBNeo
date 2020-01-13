@@ -93,7 +93,7 @@ extern UINT8 *I8x41Mem;
 void i8x41_set_read_port(UINT8 (*read)(UINT16));
 void i8x41_set_write_port(void (*write)(UINT16, UINT8));
 
-void i8x41_init(int (*irqcallback)(int));
+void i8x41_init(INT32 (*irqcallback)(INT32));
 void i8x41_reset();
 void i8x41_exit();
 INT32 i8x41_run(INT32 cycles);

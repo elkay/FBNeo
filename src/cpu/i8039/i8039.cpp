@@ -174,30 +174,30 @@ INT32 I8039GetActive()
 #define change_pc(newpc)	R.PC.w.l = (newpc)
 
 
-unsigned char __fastcall I8039DummyReadIo(unsigned int)
+UINT8 __fastcall I8039DummyReadIo(UINT32)
 {
 	return 0;
 }
 
-void __fastcall I8039DummyWriteIo(unsigned int, unsigned char)
+void __fastcall I8039DummyWriteIo(UINT32, UINT8)
 {
 }
 
-unsigned char __fastcall I8039DummyReadProg(unsigned int)
-{
-	return 0;
-}
-
-void __fastcall I8039DummyWriteProg(unsigned int, unsigned char)
-{
-}
-
-unsigned char __fastcall I8039DummyReadOp(unsigned int)
+UINT8 __fastcall I8039DummyReadProg(UINT32)
 {
 	return 0;
 }
 
-unsigned char __fastcall I8039DummyReadOpArg(unsigned int)
+void __fastcall I8039DummyWriteProg(UINT32, UINT8)
+{
+}
+
+UINT8 __fastcall I8039DummyReadOp(UINT32)
+{
+	return 0;
+}
+
+UINT8 __fastcall I8039DummyReadOpArg(UINT32)
 {
 	return 0;
 }
@@ -1058,7 +1058,7 @@ void I8039SetIrqState(int state)
 	}
 }
 
-int I8039Scan(int nAction, int *pnMin)
+int I8039Scan(int nAction, INT32 *pnMin)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_I8039Initted) bprintf(PRINT_ERROR, _T("I8039Scan called without init\n"));

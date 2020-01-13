@@ -1735,7 +1735,7 @@ static void visible_tile_check(
 		line_t->alpha_mode[line]|=0x80;
 }
 
-static void calculate_clip(INT32 y, UINT16 pri, UINT32* clip0, UINT32* clip1, int* line_enable)
+static void calculate_clip(INT32 y, UINT16 pri, UINT32* clip0, UINT32* clip1, INT32* line_enable)
 {
 	const struct f3_spritealpha_line_inf *sa_line_t=&m_sa_line_inf[0];
 

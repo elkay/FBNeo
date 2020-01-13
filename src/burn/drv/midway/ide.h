@@ -22,7 +22,7 @@ public:
     ide_disk();
     ~ide_disk();
 
-    void set_irq_callback(void (*irq)(int state));
+    void set_irq_callback(void (*irq)(INT32 state));
 
 
 private:
@@ -49,7 +49,7 @@ private:
     void cmd_write_sector_wor();
     void cmd_indentify_drive();
 
-    void (*m_irq_callback)(int state);
+    void (*m_irq_callback)(INT32 state);
 
     unsigned short *m_buffer;
     int m_buffer_pos;

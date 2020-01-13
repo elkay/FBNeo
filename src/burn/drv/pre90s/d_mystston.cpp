@@ -188,8 +188,8 @@ static INT32 DrvDoReset()
 
 static void DrvPaletteUpdate(UINT8 *p, INT32 offs)
 {
-	static const int resistances_tiles_rg[3] = { 4700, 3300, 1500 };
-	static const int resistances_tiles_b[2]  = { 3300, 1500 };
+	static const INT32 resistances_tiles_rg[3] = { 4700, 3300, 1500 };
+	static const INT32 resistances_tiles_b[2]  = { 3300, 1500 };
 
 	double weights_tiles_rg[3], weights_tiles_b[2];
 

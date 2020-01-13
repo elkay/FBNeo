@@ -9,7 +9,7 @@ static UINT8        m_latch[2][4];   /* 6bit+3bit 4 data latches */
 static UINT8        m_reset_comp;
 static void         (*m_gain_changed_cb)(INT32, INT32) = NULL;
 
-static void reset_comp_w( int level );
+static void reset_comp_w( INT32 level );
 
 static const float mb87078_gain_decibel[66] = {
 	0.0, -0.5, -1.0, -1.5, -2.0, -2.5, -3.0, -3.5,

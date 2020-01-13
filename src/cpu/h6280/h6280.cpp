@@ -174,7 +174,7 @@ static void h6280_init(int index, int clock, const void *config, int (*irqcallba
 }
 #endif
 
-void h6280_irqcallback(int (*irqcallback)(int))
+void h6280_irqcallback(INT32 (*irqcallback)(INT32))
 {
 	h6280.irq_callback = irqcallback;
 }
@@ -187,7 +187,7 @@ void h6280Reset(void)
 #endif
 
 	/* wipe out the h6280 structure */
-	int (*save_irqcallback)(int) = h6280.irq_callback;
+	INT32 (*save_irqcallback)(INT32) = h6280.irq_callback;
 	memset(&h6280, 0, sizeof(h6280_Regs));
 	h6280.irq_callback = save_irqcallback;
 
@@ -228,7 +228,7 @@ static void h6280_exit(void)
 
 static int end_run = 0;
 
-int h6280Run(int cycles)
+INT32 h6280Run(INT32 cycles)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_H6280Initted) bprintf(PRINT_ERROR, _T("h6280Run called without init\n"));
@@ -306,7 +306,7 @@ void h6280_set_context(void *src)
 	CHANGE_PC;
 }
 
-int h6280TotalCycles()
+INT32 h6280TotalCycles()
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_H6280Initted) bprintf(PRINT_ERROR, _T("h6280TotalCycles called without init\n"));
@@ -340,7 +340,7 @@ INT32 h6280Idle(INT32 cycles)
 
 /*****************************************************************************/
 
-void h6280_set_irq_line(int irqline, int state)
+void h6280_set_irq_line(INT32 irqline, INT32 state)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_H6280Initted) bprintf(PRINT_ERROR, _T("h6280_set_irq_line called without init\n"));
@@ -373,7 +373,7 @@ void h6280_set_irq_line(int irqline, int state)
 
 /*****************************************************************************/
 
-unsigned char h6280_irq_status_r(unsigned int offset)
+UINT8 h6280_irq_status_r(UINT32 offset)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_H6280Initted) bprintf(PRINT_ERROR, _T("h6280_irq_status_r called without init\n"));
@@ -397,7 +397,7 @@ unsigned char h6280_irq_status_r(unsigned int offset)
 	}
 }
 
-void h6280_irq_status_w(unsigned int offset, unsigned char data)
+void h6280_irq_status_w(UINT32 offset, UINT8 data)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_H6280Initted) bprintf(PRINT_ERROR, _T("h6280_irq_status_w called without init\n"));
@@ -419,7 +419,7 @@ void h6280_irq_status_w(unsigned int offset, unsigned char data)
 	}
 }
 
-unsigned char h6280_timer_r(unsigned int)
+UINT8 h6280_timer_r(UINT32)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_H6280Initted) bprintf(PRINT_ERROR, _T("h6280_timer_r called without init\n"));
@@ -430,7 +430,7 @@ unsigned char h6280_timer_r(unsigned int)
 	return ((h6280.timer_value>>10)&0x7F)|(h6280.io_buffer&0x80);
 }
 
-void h6280_timer_w(unsigned int offset, unsigned char data)
+void h6280_timer_w(UINT32 offset, UINT8 data)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_H6280Initted) bprintf(PRINT_ERROR, _T("h6280_timer_w called without init\n"));

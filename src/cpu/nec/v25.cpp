@@ -39,10 +39,10 @@
 #include "nec_intf.h"
 #include "bitswap.h"
 
-unsigned char cpu_readmem20_op(unsigned int);
-unsigned char cpu_readmem20_arg(unsigned int);
-unsigned char cpu_readport(unsigned int);
-void cpu_writeport(unsigned int,unsigned int);
+UINT8 cpu_readmem20_op(UINT32);
+UINT8 cpu_readmem20_arg(UINT32);
+UINT8 cpu_readport(UINT32);
+void cpu_writeport(UINT32,UINT32);
 
 static inline void write_port_word(unsigned int a, unsigned short d)
 {
@@ -163,7 +163,7 @@ static UINT8 fetchop(v25_state_t *nec_state)
 }
 
 
-void v25_open(int cpu)
+void v25_open(INT32 cpu)
 {
 	sChipsPtr = &sChips[cpu];
 }
@@ -382,7 +382,7 @@ static void external_int(v25_state_t *nec_state)
 
 /*****************************************************************************/
 
-void v25_set_irq_line_and_vector(int irqline, int vector, int state)
+void v25_set_irq_line_and_vector(INT32 irqline, INT32 vector, INT32 state)
 {
 	v25_state_t *nec_state = sChipsPtr;
 
@@ -478,7 +478,7 @@ void v25_new_frame()
 	}
 }
 
-int v25_execute(int cycles)
+INT32 v25_execute(INT32 cycles)
 {
 	v25_state_t *nec_state = sChipsPtr;
 	int prev_ICount;
@@ -563,7 +563,7 @@ int v25_execute(int cycles)
 	return cycles;
 }
 
-void v25Init(int cpu, int type, int clock)
+void v25Init(INT32 cpu, INT32 type, INT32 clock)
 {
 	sChipsPtr = &sChips[cpu];
 	v25_state_t *nec_state = sChipsPtr;
@@ -599,12 +599,12 @@ void v25RunEnd()
 	sChipsPtr->stop_run = 1;
 }
 
-void v25Idle(int cycles)
+void v25Idle(INT32 cycles)
 {
 	sChipsPtr->cycles_total += cycles;
 }
 
-int v25GetPC(int n)
+INT32 v25GetPC(INT32 n)
 {
 	if (n == -1) { // current cpu
 		return ((sChipsPtr->ram.w[sChipsPtr->RBW + (PS)]<<4) + sChipsPtr->ip);
@@ -614,7 +614,7 @@ int v25GetPC(int n)
 	}
 }
 
-void v25Scan(int cpu, int nAction)
+void v25Scan(INT32 cpu, INT32 nAction)
 {
 	v25_state_t *nec_state = &sChips[cpu];
 

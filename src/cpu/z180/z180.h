@@ -156,7 +156,7 @@ extern UINT8 z180_readmem(UINT32 offset);
 extern void z180_writemem(UINT32 offset, UINT8 data);
 extern void z180_setOPbase(int pc);
 
-void z180_init(int index, int clock, /*const void *config,*/ int (*irqcallback)(int));
+void z180_init(INT32 index, INT32 clock, /*const void *config,*/ INT32 (*irqcallback)(INT32));
 void z180_exit();
 void z180_reset(void);
 int z180_execute(int cycles);

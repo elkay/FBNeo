@@ -167,7 +167,7 @@ void TMS9928AReset()
 	tms.mode = 0;
 }
 
-void TMS9928AInit(INT32 model, INT32 vram, INT32 borderx, INT32 bordery, void (*INTCallback)(int))
+void TMS9928AInit(INT32 model, INT32 vram, INT32 borderx, INT32 bordery, void (*INTCallback)(INT32))
 {
 	TMS9928A_initted = 1;
 

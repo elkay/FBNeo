@@ -146,7 +146,7 @@ void pia_reset(void)
 
 /******************* wire-OR for all interrupt handlers *******************/
 
-static void update_shared_irq_handler(void (*irq_func)(int state))
+static void update_shared_irq_handler(void (*irq_func)(INT32 state))
 {
 	int i;
 

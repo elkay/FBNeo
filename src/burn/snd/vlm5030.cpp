@@ -141,7 +141,7 @@ struct vlm5030_info
 	// FBA-specific variables
 	INT16 *output;
 	INT32 samples_per_frame;
-	UINT32 (*pSyncCallback)(int samples_per_frame);
+	UINT32 (*pSyncCallback)(INT32 samples_per_frame);
 	INT32 current_position;
 	INT32 fill_buffer_hack;
 	double gain[2];

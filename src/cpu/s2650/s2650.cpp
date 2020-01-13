@@ -57,7 +57,7 @@ typedef struct {
 
 static s2650_Regs S;
 static s2650_Regs Store[MAX_S2650];
-int nActiveS2650 = -1;
+INT32 nActiveS2650 = -1;
 static INT32 cycles_slice;
 
 /* condition code changes for a byte */
@@ -807,7 +807,7 @@ static void s2650_set_context(void *src)
 	}
 }
 */
-void s2650SetIRQLine(int irqline, int state)
+void s2650SetIRQLine(INT32 irqline, INT32 state)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_S2650Initted) bprintf(PRINT_ERROR, _T("s2650SetIRQLine called without init\n"));
@@ -853,7 +853,7 @@ static int s2650_get_sense(void)
     return (((S.psu & SI) ? 1 : 0) | ((s2650ReadPort(S2650_SENSE_PORT) & SI) ? 1 : 0));
 }*/
 
-int s2650Run(int cycles)
+INT32 s2650Run(INT32 cycles)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_S2650Initted) bprintf(PRINT_ERROR, _T("s2650Run called without init\n"));
@@ -1500,7 +1500,7 @@ INT32 s2650Idle(INT32 cycles)
 	return cycles;
 }
 
-int s2650Scan(int nAction)
+INT32 s2650Scan(INT32 nAction)
 {
 #if defined FBNEO_DEBUG
 	if (!DebugCPU_S2650Initted) bprintf(PRINT_ERROR, _T("s2650Scan called without init\n"));
@@ -1521,7 +1521,7 @@ int s2650Scan(int nAction)
 	return 0;
 }
 
-void s2650_open(int num)
+void s2650_open(INT32 num)
 {
 	nActiveS2650 = num;
 	memcpy (&S, &Store[nActiveS2650], sizeof (S));
@@ -1533,7 +1533,7 @@ void s2650_close()
 	nActiveS2650 = -1;
 }
 
-void s2650_init(int num)
+void s2650_init(INT32 num)
 {
 	memset (&S, 0, sizeof(S));
 	memset (&Store, 0, sizeof(S) * num);

@@ -28,7 +28,7 @@ static void tcs_portb_w(UINT16, UINT8 data)
 	tcs_status = (data >> 4) & 3;
 }
 
-static void tcs_irq(int state)
+static void tcs_irq(INT32 state)
 {
 	M6809SetIRQLine(0, state ? CPU_IRQSTATUS_ACK : CPU_IRQSTATUS_NONE);
 }

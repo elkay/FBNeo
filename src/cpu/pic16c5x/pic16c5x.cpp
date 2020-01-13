@@ -747,7 +747,7 @@ static void pic16C5x_soft_reset(void)
 	pic16C5x_reset_regs();
 }
 
-void pic16c5x_config(int data)
+void pic16c5x_config(INT32 data)
 {
 //	logerror("Writing %04x to the PIC16C5x config register\n",data);
 	temp_config = (data & 0xfff);
@@ -829,7 +829,7 @@ static void pic16C5x_update_timer(int counts)
  *  Execute IPeriod. Return 0 if emulation should be stopped
  ****************************************************************************/
 
-int pic16c5xRun(int cycles)
+INT32 pic16c5xRun(INT32 cycles)
 {
 	UINT8 T0_in;
 	slice_cycles = cycles;
@@ -956,7 +956,7 @@ static void pic16C58_reset(void)
 }
 
 
-void pic16c5xDoReset(int type, int *romlen, int *ramlen)
+void pic16c5xDoReset(INT32 type, INT32 *romlen, INT32 *ramlen)
 {
 	switch (type)
 	{
@@ -1014,7 +1014,7 @@ INT32 pic16c5xIdle(INT32 cycles)
 	return cycles;
 }
 
-int pic16c5xScanCpu(int nAction,int */*pnMin*/)
+INT32 pic16c5xScanCpu(INT32 nAction,INT32 */*pnMin*/)
 {
 	struct BurnArea ba;
 

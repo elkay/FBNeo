@@ -38,8 +38,8 @@ struct pia6821_interface
 	void (*out_b_func)(UINT16 offset, UINT8 data);
 	void (*out_ca2_func)(UINT16 offset, UINT8 data);
 	void (*out_cb2_func)(UINT16 offset, UINT8 data);
-	void (*irq_a_func)(int state);
-	void (*irq_b_func)(int state);
+	void (*irq_a_func)(INT32 state);
+	void (*irq_b_func)(INT32 state);
 };
 
 #ifdef __cplusplus
