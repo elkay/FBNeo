@@ -150,7 +150,7 @@ char g_rom_parent_dir[MAX_PATH];
 char g_save_dir[MAX_PATH];
 char g_system_dir[MAX_PATH];
 char g_autofs_path[MAX_PATH];
-extern unsigned int (__cdecl *BurnHighCol) (signed int r, signed int g, signed int b, signed int i);
+extern UINT32 (__cdecl *BurnHighCol) (INT32 r, INT32 g, INT32 b, INT32 i);
 
 static bool driver_inited;
 
@@ -442,7 +442,7 @@ static void ForceFrameStep(int bDraw)
 
 // Non-idiomatic (OutString should be to the left to match strcpy())
 // Seems broken to not check nOutSize.
-char* TCHARToANSI(const TCHAR* pszInString, char* pszOutString, int /*nOutSize*/)
+char* TCHARToANSI(const TCHAR* pszInString, char* pszOutString, INT32 /*nOutSize*/)
 {
 	if (pszOutString)
 	{
@@ -453,7 +453,7 @@ char* TCHARToANSI(const TCHAR* pszInString, char* pszOutString, int /*nOutSize*/
 	return (char*)pszInString;
 }
 
-const int nConfigMinVersion = 0x020921;
+const INT32 nConfigMinVersion = 0x020921;
 
 // addition to support loading of roms without crc check
 static int find_rom_by_name(char *name, const ZipEntry *list, unsigned elems)
@@ -519,7 +519,7 @@ static void free_archive_list(ZipEntry *list, unsigned count)
 	}
 }
 
-static int archive_load_rom(uint8_t *dest, int *wrote, int i)
+static INT32 archive_load_rom(UINT8 *dest, INT32 *wrote, INT32 i)
 {
 	if (i < 0 || i >= g_rom_count)
 		return 1;
@@ -611,7 +611,7 @@ static bool open_archive()
 		}
 
 		ZipEntry *list = NULL;
-		int count;
+		INT32 count;
 		ZipGetList(&list, &count);
 
 		// Try to map the ROMs FBNEO wants to ROMs we find inside our pretty archives ...
@@ -893,21 +893,21 @@ static uint8_t *write_state_ptr;
 static const uint8_t *read_state_ptr;
 static unsigned state_sizes[2];
 
-static int burn_write_state_cb(BurnArea *pba)
+static INT32 burn_write_state_cb(BurnArea *pba)
 {
 	memcpy(write_state_ptr, pba->Data, pba->nLen);
 	write_state_ptr += pba->nLen;
 	return 0;
 }
 
-static int burn_read_state_cb(BurnArea *pba)
+static INT32 burn_read_state_cb(BurnArea *pba)
 {
 	memcpy(pba->Data, read_state_ptr, pba->nLen);
 	read_state_ptr += pba->nLen;
 	return 0;
 }
 
-static int burn_dummy_state_cb(BurnArea *pba)
+static INT32 burn_dummy_state_cb(BurnArea *pba)
 {
 #ifdef FBNEO_DEBUG
 	log_cb(RETRO_LOG_INFO, "state debug: name %s, len %d\n", pba->szName, pba->nLen);
@@ -982,7 +982,7 @@ void retro_cheat_set(unsigned, bool, const char*) {}
 
 void retro_get_system_av_info(struct retro_system_av_info *info)
 {
-	int game_aspect_x, game_aspect_y;
+	INT32 game_aspect_x, game_aspect_y;
 	bVidImageNeedRealloc = true;
 	BurnDrvGetAspect(&game_aspect_x, &game_aspect_y);
 

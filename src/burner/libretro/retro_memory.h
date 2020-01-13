@@ -9,6 +9,6 @@ extern void* MainRamData;
 extern size_t MainRamSize;
 extern bool bMainRamFound;
 
-int StateGetMainRamAcb(BurnArea *pba);
+INT32 StateGetMainRamAcb(BurnArea *pba);
 
 #endif

@@ -5,7 +5,7 @@ void* MainRamData = NULL;
 size_t MainRamSize = 0;
 bool bMainRamFound = false;
 
-int StateGetMainRamAcb(BurnArea *pba)
+INT32 StateGetMainRamAcb(BurnArea *pba)
 {
 	int nHardwareCode = BurnDrvGetHardwareCode();
 
