@@ -25,6 +25,10 @@
 #define RETRO_GAME_TYPE_NGP		14
 
 #define PERCENT_VALUES \
+      {"5%", NULL }, \
+      {"10%", NULL }, \
+      {"15%", NULL }, \
+      {"20%", NULL }, \
       {"25%", NULL }, \
       {"30%", NULL }, \
       {"35%", NULL }, \
