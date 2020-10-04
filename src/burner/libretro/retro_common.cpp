@@ -818,6 +818,14 @@ static int percent_parser(const char *value)
 		nVal = 30;
 	else if (strcmp(value, "25%") == 0)
 		nVal = 25;
+	else if (strcmp(value, "20%") == 0)
+		nVal = 20;
+	else if (strcmp(value, "15%") == 0)
+		nVal = 15;
+	else if (strcmp(value, "10%") == 0)
+		nVal = 10;
+	else if (strcmp(value, "5%") == 0)
+		nVal = 5;
 
 	return (int)((double)nVal * 256.0 / 100.0 + 0.5);
 }
